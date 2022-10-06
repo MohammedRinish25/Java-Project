@@ -1,0 +1,6 @@
+com.bikerental.dao
+com.bikerental.exception
+com.bikerental.main
+com.bikerental.model
+com.bikerental.service
+com.bikerental.util

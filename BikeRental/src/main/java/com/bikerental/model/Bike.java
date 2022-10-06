@@ -12,15 +12,17 @@ public class Bike {
 	private String brand;
 	private String location;
 	private String category;
-	private boolean availability;
 	private LocalDate startDate;
 	private LocalDate endDate;
 	private LocalDateTime startTime;
 	private LocalDateTime endTime;
 	private double fare;
+	private boolean availability;
+	
 	public Bike() {
 		super();
 	}
+	
 	public Bike(Integer bikeId, String bikeNumber, String bikeName, String brand, String location, String category,
 			boolean availability, LocalDate startDate, LocalDate endDate, LocalDateTime startTime,
 			LocalDateTime endTime, double fare) {
@@ -38,6 +40,7 @@ public class Bike {
 		this.endTime = endTime;
 		this.fare = fare;
 	}
+	
 	public Bike(String bikeNumber, String bikeName, String brand, String location, String category, LocalDate startDate,
 			LocalDate endDate, LocalDateTime startTime, LocalDateTime endTime, double fare) {
 		super();
@@ -52,6 +55,7 @@ public class Bike {
 		this.endTime = endTime;
 		this.fare = fare;
 	}
+	
 	public Integer getBikeId() {
 		return bikeId;
 	}
@@ -124,12 +128,16 @@ public class Bike {
 	public void setFare(double fare) {
 		this.fare = fare;
 	}
+
 	@Override
 	public String toString() {
 		return "Bike [bikeId=" + bikeId + ", bikeNumber=" + bikeNumber + ", bikeName=" + bikeName + ", brand=" + brand
 				+ ", location=" + location + ", category=" + category + ", startDate=" + startDate + ", endDate="
-				+ endDate + ", startTime=" + startTime + ", endTime=" + endTime + ", fare=" + fare + "]";
+				+ endDate + ", startTime=" + startTime + ", endTime=" + endTime + ", fare=" + fare + ", availability="
+				+ availability + "]";
 	}
+	
+	
 	
 	
 

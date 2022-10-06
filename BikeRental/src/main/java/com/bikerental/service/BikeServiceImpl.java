@@ -89,7 +89,7 @@ public class BikeServiceImpl implements IBikeService {
 	}
 
 	@Override
-	public List<Bike> getByDuration(LocalDateTime startTime, LocalDateTime endTime) {
+	public List<Bike> getByDuration(LocalDateTime startTime, LocalDateTime endTime) throws BikeNotFoundException{
 		
 		List<Bike> bikes=bikeRental.findByDuration(startTime,endTime);
 		if(bikes.isEmpty())

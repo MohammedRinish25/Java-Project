@@ -26,6 +26,7 @@ public class BikeMapper implements IRowMapper{
 				 bike.setStartTime(resultSet.getTimestamp(9).toLocalDateTime());
 				 bike.setEndTime( resultSet.getTimestamp(10).toLocalDateTime());
 				 bike.setFare(resultSet.getDouble(11));	 
+				 bike.setAvailability(resultSet.getBoolean(12));
 				
 				 bikes.add(bike);
 			}

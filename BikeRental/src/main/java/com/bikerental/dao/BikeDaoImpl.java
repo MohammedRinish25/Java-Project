@@ -22,7 +22,7 @@ import com.bikerental.util.Queries;
 
 public class BikeDaoImpl implements IBikeDao{
 
-	IRowMapper rowMapper=new BikeMapper();
+	IRowMapper rowMapper=new BikeMapper(); 
 	
 	@Override
 	public void addBike(Bike bike) {
@@ -43,6 +43,7 @@ public class BikeDaoImpl implements IBikeDao{
 			statement.setTimestamp(8, Timestamp.valueOf(bike.getStartTime()));
 			statement.setTimestamp(9,Timestamp.valueOf(bike.getEndTime()) );
 			statement.setDouble(10,bike.getFare());
+			statement.setBoolean(11, true);
 			statement.execute();
 
 		}catch(SQLException e) {
