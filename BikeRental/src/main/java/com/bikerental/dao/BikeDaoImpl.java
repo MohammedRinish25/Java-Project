@@ -24,6 +24,9 @@ public class BikeDaoImpl implements IBikeDao{
 
 	IRowMapper rowMapper=new BikeMapper(); 
 	
+	/**
+	 * @param bike is passed as parameter and add bike to table
+	 */
 	@Override
 	public void addBike(Bike bike) {
 		PreparedStatement statement=null;
@@ -61,6 +64,11 @@ public class BikeDaoImpl implements IBikeDao{
 
 	}
 
+	/**
+	 * @param bikeNumber to search using bike number
+	 * @param fare to search using bike number
+	 * @return the updated bike result
+	 */
 	@Override
 	public int updateBike(String bikeNumber, double fare) {
 		PreparedStatement statement=null;
@@ -92,6 +100,10 @@ public class BikeDaoImpl implements IBikeDao{
 
 	}
 
+	/**
+	 * @param bikeNumber is passed to find bike by number
+	 * @return bike if found
+	 */
 	@Override
 	public Bike findById(String bikeNumber) {
 		
@@ -140,6 +152,10 @@ public class BikeDaoImpl implements IBikeDao{
 		return bike;
 	}
 
+	/**
+	 * @param bikeNumber search for bike to delete
+	 * @return if bike is deleted
+	 */
 	@Override
 	public int deleteBike(String bikeNumber) {
 		PreparedStatement statement=null;
@@ -166,6 +182,9 @@ public class BikeDaoImpl implements IBikeDao{
 		return result;	
 	}
 
+	/**
+	 * @return the list of bike present
+	 */
 	@Override
 	public List<Bike> findAllBikes() {
 		List<Bike> bikes=new ArrayList<>();
@@ -203,6 +222,10 @@ public class BikeDaoImpl implements IBikeDao{
 		
 	
 
+	/**
+	 * @param category search bike using this
+	 * @return the bikes based on category
+	 */
 	@Override
 	public List<Bike> findByCategory(String category) {
 		List<Bike> bikes=new ArrayList<>();
@@ -239,6 +262,11 @@ public class BikeDaoImpl implements IBikeDao{
 		
 	
 
+	/**
+	 * @param category search bikes based on category
+	 * @param fare search based on the fare
+	 * @return the result based on fare and category
+	 */
 	@Override
 	public List<Bike> findByCategoryandFare(String category, double fare) {
 		List<Bike> bikes=new ArrayList<>();
@@ -277,6 +305,11 @@ public class BikeDaoImpl implements IBikeDao{
 		
 	}
 
+	/**
+	 * @param startTime search by using start time
+	 * @param endTime search by using end time
+	 * @return the list based on the duration
+	 */
 	@Override
 	public List<Bike> findByDuration(LocalDateTime startTime, LocalDateTime endTime) {
 		
@@ -321,6 +354,12 @@ public class BikeDaoImpl implements IBikeDao{
 	
 }
 
+	/**
+	 * @param startTime search bikes based on time
+	 * @param endTime search bikes based on end time
+	 * @param location search for the specific location
+	 * @return the list based on the parameter
+	 */
 	@Override
 	public List<Bike> findByTimeAndLocation(LocalDateTime startTime, LocalDateTime endTime, String location) {
 		List<Bike> bikes=new ArrayList<>();
@@ -366,6 +405,12 @@ public class BikeDaoImpl implements IBikeDao{
 	}
 	
 
+	/**
+	 * @param startTime search based on start time
+	 * @param endTime search bikes based on the end time
+	 * @param category search bikes based on category
+	 * @return the list based on the parameters passed
+	 */
 	@Override
 	public List<Bike> findByTimeAndCategory(LocalDateTime startTime, LocalDateTime endTime, String category) {
 		

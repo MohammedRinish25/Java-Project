@@ -16,8 +16,8 @@ public class UserServiceImpl implements IUserService{
 	
 	IUserDao userDao=new UserDaoImpl();
 	/**
-	 * @param user
-	 * @return
+	 * @param add user to the table
+	 * @return added user
 	 */
 	@Override
 	public String register(User user) {
@@ -25,9 +25,9 @@ public class UserServiceImpl implements IUserService{
 	}
 
 	/**
-	 * @param userName
-	 * @param password
-	 * @return
+	 * @param userName to search based on name
+	 * @param password to search based on password
+	 * @return the user or else throw exception
 	 */
 	@Override
 	public User login(String userName, String password) throws UserNotFoundException{
@@ -40,6 +40,11 @@ public class UserServiceImpl implements IUserService{
 		}
 	}
 
+	/**
+	 * @param userName search user based on user name 
+	 * @param password search user based on password
+	 * @return the changed password
+	 */
 	@Override
 	public int changePassword(String userName,String password) {
 		return userDao.changePassword(userName,password);

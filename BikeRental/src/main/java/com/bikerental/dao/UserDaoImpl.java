@@ -19,6 +19,10 @@ import com.bikerental.util.Queries;
  */
 public class UserDaoImpl implements IUserDao{
 
+	/**
+	 * @param user to search the user
+	 * @return the new added user
+	 */
 	@Override
 	public String addUser(User user) {
 		PreparedStatement statement=null;
@@ -48,9 +52,9 @@ public class UserDaoImpl implements IUserDao{
 	}
 
 	/**
-	 * @param userName
-	 * @param password
-	 * @return
+	 * @param userName search user based on userName
+	 * @param password search user based on password
+	 * @return the userName if available in the table
 	 */
 	@Override
 	public User findByUserName(String userName, String password) {
@@ -89,6 +93,11 @@ public class UserDaoImpl implements IUserDao{
 		return user;
 	}
 
+	/**
+	 * @param userName search user based on userName
+	 * @param password search user based on password
+	 * @return password change based on the user input
+	 */
 	@Override
 	public int changePassword(String userName,String password) {
 		PreparedStatement statement=null;

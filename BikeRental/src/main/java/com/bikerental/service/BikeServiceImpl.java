@@ -15,6 +15,9 @@ import com.bikerental.model.Bike;
 public class BikeServiceImpl implements IBikeService {
 
 	IBikeDao bikeRental=new BikeDaoImpl();
+	/**
+	 * @param bike used to add the bike
+	 */
 	@Override
 	public void addBike(Bike bike) {
 		
@@ -22,6 +25,12 @@ public class BikeServiceImpl implements IBikeService {
 		
 	}
 
+	/**
+	 * @param bikeNumber search based on number
+	 * @param fare search bike based on the fare
+	 * @return the updated result of the bike
+	 * @throws BikeNotFoundException if there is no bike
+	 */
 	@Override
 	public int updateBike(String bikeNumber, double fare) throws BikeNotFoundException{
 		
@@ -33,6 +42,11 @@ public class BikeServiceImpl implements IBikeService {
 			return result;
 	}
 
+	/**
+	 * @param bikeNumber search bike based on bikeNumber
+	 * @return the result based on the bikeNumber if it is available
+	 * @throws BikeNotFoundException if no bike found there
+	 */
 	@Override
 	public Bike getById(String bikeNumber) throws BikeNotFoundException {
 		Bike bike=bikeRental.findById(bikeNumber);
@@ -42,6 +56,11 @@ public class BikeServiceImpl implements IBikeService {
 		   return bike;
 	}
 
+	/**
+	 * @param bikeNumber search based on the bikeNumber
+	 * @return delete the deleted bike
+	 * @throws BikeNotFoundException if no bikes available
+	 */
 	@Override
 	public int deleteBike(String bikeNumber) throws BikeNotFoundException{
 		int result=bikeRental.deleteBike(bikeNumber);
@@ -54,6 +73,10 @@ public class BikeServiceImpl implements IBikeService {
 		
 	}
 
+	/**
+	 * @return the list of all bikes present
+	 * @throws BikeNotFoundException if list is empty
+	 */
 	@Override
 	public List<Bike> getAllBikes() throws BikeNotFoundException {
 		List<Bike> bikes=bikeRental.findAllBikes();
@@ -66,6 +89,11 @@ public class BikeServiceImpl implements IBikeService {
 		.collect(Collectors.toList());
 	}
 
+	/**
+	 * @param category search bike based on the category
+	 * @return the result based on the category
+	 * @throws BikeNotFoundException if no bike present based on category
+	 */
 	@Override
 	public List<Bike> getByCategory(String category) throws BikeNotFoundException{
 		List<Bike> bikes=bikeRental.findByCategory(category);
@@ -77,6 +105,12 @@ public class BikeServiceImpl implements IBikeService {
 				.collect(Collectors.toList());
 	}
 
+	/**
+	 * @param category search bike based on category
+	 * @param fare search bike based on fare
+	 * @return the list of bikes based on fare and category
+	 * @throws CategoryNotFoundException if no bikes are available
+	 */
 	@Override
 	public List<Bike> getByCategoryandFare(String category, double fare) throws CategoryNotFoundException{
 		List<Bike> bikes=bikeRental.findByCategoryandFare(category,fare);
@@ -88,6 +122,12 @@ public class BikeServiceImpl implements IBikeService {
 				.collect(Collectors.toList());
 	}
 
+	/**
+	 * @param startTime search based on the startTime 
+	 * @param endTime search based on the endTime
+	 * @return the list of bikes based on time
+	 * @throws BikeNotFoundException if list if empty or no bikes available
+	 */
 	@Override
 	public List<Bike> getByDuration(LocalDateTime startTime, LocalDateTime endTime) throws BikeNotFoundException{
 		
@@ -99,6 +139,13 @@ public class BikeServiceImpl implements IBikeService {
 				.collect(Collectors.toList());
 	}
 
+	/**
+	 * @param startTime to search the bike based on the startTime 
+	 * @param endTime to search the bike based on the endTime
+	 * @param location to search the bike based on the location
+	 * @return the list based on the location and time 
+	 * @throws BikeNotFoundException if no bikes found
+	 */
 	@Override
 	public List<Bike> getByTimeAndLocation(LocalDateTime startTime, LocalDateTime endTime, String location)throws BikeNotFoundException {
 		List<Bike> bikes=bikeRental.findByTimeAndLocation(startTime,endTime,location);
@@ -110,6 +157,13 @@ public class BikeServiceImpl implements IBikeService {
 		
 	}
 
+	/**
+	 * @param startTime to search the bike based on the startTime 
+	 * @param endTime to search the bike based on the endTime
+	 * @param category to search the bike based on the category
+	 * @return the list based on the time and category of the bike
+	 * @throws CategoryNotFoundException if no bikes are present
+	 */
 	@Override
 	public List<Bike> getByTimeAndCategory(LocalDateTime startTime, LocalDateTime endTime, String category) throws CategoryNotFoundException {
 		List<Bike> bikes=bikeRental.findByTimeAndCategory(startTime,endTime,category);

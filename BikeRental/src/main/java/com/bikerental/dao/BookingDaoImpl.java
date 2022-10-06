@@ -21,10 +21,10 @@ import com.bikerental.util.Queries;
 public class BookingDaoImpl  implements IBookingDao{
 
 	/**
-	 * @param startTime
-	 * @param endTime
-	 * @param category
-	 * @return
+	 * @param startTime search for bike based on start time
+	 * @param endTime search for bike based on end time
+	 * @param category search for bike based on category
+	 * @return return if bike is available
 	 */
 	@Override
 	public Bike booking(LocalDateTime startTime, LocalDateTime endTime, String category) {
@@ -88,8 +88,9 @@ public class BookingDaoImpl  implements IBookingDao{
 		
 	
 
+	
 	/**
-	 * @param bikeId
+	 * @param bikeNumber search for bikeNumber and update the table
 	 */
 	@Override
 	public void updateAvailability(String bikeNumber) {
